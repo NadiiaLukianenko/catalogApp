@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalog App</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="wrapper">
+{% include 'header.html' %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 right bottom">
+                <h3>Categories</h3>
+                <div>
+                {% for i in categories %}
+                    <a href="{{url_for('catalog_selected',category_name=i.name)}}" id="category-link">{{ i.name }}</a><br>
+                {% endfor %}
+                <br>
+                </div>
+            </div>
+            <div class="col-sm-9 left top">
+                <br>
+                {% if 'username' in login_session %}
+                <a href="{{url_for('new_item')}}" id="links">Add Item</a>
+                {% endif %}
+                <h3>{{category_name}} Items</h3>
+                <div id="links">
+                {% for i in items %}
+                    <a href="{{url_for('item',category_name=category_name,item_name=i.name)}}" id="item-link">
+                        {{ i.name }}</a><br>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="push"></div>
+</div>
+{% include 'footer.html' %}
+
+</body>
+</html>

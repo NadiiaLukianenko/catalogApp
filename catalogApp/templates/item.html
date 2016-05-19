@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<!--    <style type="text/css" media="stylesheet" href="style.css"> -->
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="wrapper">
+{% include 'header.html' %}
+<div class="container">
+        <h3>{{item.name}}</h3><br>
+        {% if item.image!="" %}
+            <img src="{{url_for('uploaded_file',filename=item.image)}}"/>
+        {% endif %}
+        {{item.description}}<br><br>
+    {% if 'username' in login_session %}
+    <a href="{{url_for('edit_item',category_name=category.name,item_name=item.name)}}">Edit</a> |
+    <a href="{{url_for('delete_item',category_name=category.name,item_name=item.name)}}">Delete</a>
+    {% endif %}
+</div>
+<div class="push"></div>
+</div>
+{% include 'footer.html' %}
+
+</body>
+</html>
