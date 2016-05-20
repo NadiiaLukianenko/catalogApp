@@ -1,6 +1,7 @@
 ### This is Catalog application v.1.1
 **Prerequisites:**
-Installed:
+
+**Installed:**
 * Python v2.7.x
 * PostgreSQL 9.3.12
 * Apache2
@@ -8,7 +9,7 @@ Installed:
 * python-psycopg2
 
 **To deploy application:**
-
+* Connect to 52.10.109.90:2200
 * Fork the repository into directory /var/www/CatalogApp: https://github.com/NadiiaLukianenko/catalogApp.git
 * Create DB and populate data:
 ```sh
@@ -34,17 +35,8 @@ Installed:
 ```sh
 sudo service apache2 restart
 ```
-**API endpoints:**
-
-***JSON:***
-
-* */catalog.JSON* - Fetches and returns all data in json format
-* */catalog/\<category_name\>.JSON* - Fetches and returns items for *\<category_name\>*
-
-***XML:***
-
-* */catalog.XML* - Fetches and returns all data in xml format
-* */catalog/\<category_name\>.XML* - Fetches and returns items for *\<category_name\>*
+* Check results:
+http://52.10.109.90
 
 **What are included:**
 ```
@@ -74,6 +66,12 @@ README.md
 * Login/Logout
 * View categories
 * View/Create/Update/Delete items
+
+**Resources:**
+* http://askubuntu.com/
+* http://unix.stackexchange.com/
+
+
 
 **Creator:**
 
