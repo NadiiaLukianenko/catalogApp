@@ -1,23 +1,21 @@
-### This is Catalog application v.1.0
+### This is Catalog application v.1.1
 **Prerequisites:**
 Installed:
-1. *Python v2.7.x*
-2. *PostgreSQL 9.3.12*
-3. *Apache2*
-4. *libapache2-mod-wsgi*
-5. *python-psycopg2*
+* Python v2.7.x
+* PostgreSQL 9.3.12
+* Apache2
+* libapache2-mod-wsgi
+* python-psycopg2
 
 **To deploy application:**
 
-1. Fork the repository into directory /var/www/CatalogApp:
-    https://github.com/NadiiaLukianenko/catalogApp.git
-
-2. Create DB and populate data:
+* Fork the repository into directory /var/www/CatalogApp: https://github.com/NadiiaLukianenko/catalogApp.git
+* Create DB and populate data:
 ```sh
 >>> python database_setup.py
 >>> python db_populate.py
 ```
-3. Configure apache:
+* Configure apache:
 ```sh
 <VirtualHost *:80>
   DocumentRoot "/var/www/catalogApp/catalogApp/"
@@ -32,7 +30,7 @@ Installed:
         ErrorLog ${APACHE_LOG_DIR}/error.log
 </VirtualHost>
 ```
-4. Run apache:
+* Run apache:
 ```sh
 sudo service apache2 restart
 ```
@@ -73,7 +71,6 @@ README.md
 ```
 
 **Main functionality:**
-
 * Login/Logout
 * View categories
 * View/Create/Update/Delete items
